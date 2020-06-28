@@ -1,0 +1,160 @@
+【やること】
+・初期設定
+・animal_detectionベースで改良する
+・ディレクトリ移動
+・cloneして、新規ブランチ切る
+git clone -b ブランチ名 https://リポジトリのアドレス　animal_bird_det
+
+
+◆初期設定
+
+git config --global user.name "tenkawa"
+git config --global user.email tenkawa_t@
+git config --global core.editor "atom --wait"
+
+
+◆新規作成の場合
+フォルダ作成
+空のリポジトリ作成
+git init
+ファイル確認
+ls -a 
+（隠れフォルダができる）
+
+
+◆誰かが作成したものをクローン
+
+・マスターの場合
+任意のフォルダに移動
+git clone http:...
+
+・ブランチの場合
+git clone -b ブランチ名 https://リポジトリのアドレス　変えたい名前
+ディレクトリ移動
+cd aaa
+ファイル確認
+ls-a
+
+◆リモートの情報のマージの方法
+リモートリポジトリから最新情報を更新
+git fetch origin
+
+◆確認----
+ブランチ確認
+git branch -a
+
+リモートのワークツリーに切り替え
+git checkout remotes/origin/master
+ファイル変更確認
+ls
+マスターに戻る
+git checkout master
+
+確認終了----
+
+
+オリジンリポジトリを自分のマスターにマージ
+git merge origin/master
+                    
+(git pull origin animal_detection)
+
+
+◆変更のマージ
+変更をステージへアップ
+git add . 
+コミット　変更を記録
+git commit
+
+◆変更の確認
+ワークツリーとステージの差分
+git diff
+ステージとコミット
+git diff --staged
+
+◆変更履歴確認
+git log
+1行
+git log --oneline
+ファイルの変更差分
+git log -p index.html
+表示するコミット数限定
+git log -n
+
+◆ファイル削除を記録
+git rm <ファイル名>
+git rm -r <ディレクトリ名>
+ファイルを残したいとき
+git rm --cached <ファイル名>
+
+◆ファイルの移動を記録
+git mv <旧ファイル名> <シンファイル名>
+
+◆push
+リモートリポジトリを新規追加
+git remote add origin https:
+originというショートカットでurlのリモートリポジトリに登録
+
+git push <リモート名> <ブランチ名>
+git push origin master
+
+◆エイリアス
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.co checkout
+
+◆バージョン管理しない
+.gitignore ファイルを作成しその中にファイル名を格納
+
+
+◆からファイル作成
+touch  a.txt
+
+
+◆ファイル変更の取り消し
+stagedから変更前に変更
+
+git checkout -- <ファイル名>
+git checkout -- <ディレクトリ名>
+
+全変更を取り消す
+git checkout --
+
+
+◆ステージした変更を取り消す
+git reset HEAD <ファイル名>
+git reset HEAD <ディレクトリ名>
+
+全変更を取り消す
+git reset HEAD .
+
+◆直前のコミットを修正
+git commit --amend
+修正するという意味
+
+リモートリポジトリにpushしたコミットはやり直し不可
+
+pushとローカルの履歴がおかしくなるため
+
+ファイル自体の変更はされない
+
+◆ブランチ
+並行して複数機能を開発
+
+ブランチ作成
+git branch <ブランチ名>
+
+今いるブランチ
+git branch
+
+全てのブランチを表示
+git branch -a
+
+ブランチの対応
+git log --online --decorate
+
+ブランチ切り替え
+git checkout feature
+
+
+
