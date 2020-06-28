@@ -158,5 +158,15 @@ git log --online --decorate
 ブランチ切り替え
 git checkout feature
 
+◆リモート
+確認
+git remote -v
+
+削除
+git remote rm origin
 
 
+◆push
+git push origin HEAD 
+        or
+git push origin ブランチ名 
